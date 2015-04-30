@@ -1,34 +1,52 @@
 Python Library for OpenBCI
 ==============
+This repository's purpose is to allow for programmers to interface with OpenBCI technology directly, both to acquire data and to write programs that can use that data on a live setting, using Python.
 
-![alt tag](https://raw.github.com/theRealWardo/Python_OpenBCI/master/architecture.png)
+If this is not what you are looking for, you can visit http://openbci.com/downloads and browse other OpenBCI software that will fit your needs.
 
-- **open_bci.py** manages the connection between the OpenBCI board and Python
-- **udp_server.py** exposes the data over UDP
-- **socket_server.js** a Node.js server that retransmits the data over a Web Socket
-- **htdocs/index.html** a hack to display data using D3.js
-
-Running the Server
+## Dependency List
 --------------
+OpenBCI 8 and 32 bit board with 8 or 16 channels.
+* Python 2.7 or later (https://www.python.org/download/releases/2.7/)
+* Numpy 1.7 or later (http://www.numpy.org/)
 
-- Plugin the board
-- `python udp_server.py --json` (add the `--filter_data` command to enable the band-stop filter on the board)
-- Optionally use `python udp_client.py --json` to verify data is coming through
-- Run `npm install` to make sure you have the dependencies
-- Run `node socket_server.js`
-- Visit [http://127.0.0.1:8880](http://127.0.0.1:8880) to see your brain waves
-- Optionally use `python socket_client.py` to view the Web Socket data coming back into Python (requires socketio-client)
+Use of specific features and scripts may require additional packages.
 
-Running the Python server/client without the --json flag will cause the OpenBCISample object to be used as the data transmission mechanism. This is for people that want to do some processing in Python.
+## Setup and Installation
+-------------
+Refer to http://docs.openbci.com/tutorials/01-GettingStarted 
 
-Dependency List
+## Repository Hierarchy
 --------------
+### open_bci.py
 
-Python UDP demos require:
-- pyserial
+This file contains the class definition that instantiates an OpenBCI Board object and various helpful commands to interact with the board, including initializing communication with it.
 
-Node sample requires:
-- socket.io
+### test.py
 
-Python Web Socket requires:
-- socketio-client
+A simple piece of example code that should print values. 
+
+### Utilities
+
+The `utilities` folder contains numerous tools with which to collect and sort data from the OpenBCI board.
+
+* `classifier`
+
+ A good starting point. It includes openbci_collector.py (a class that tracks data and stores it in a CSV file) and pyeeg.py (a Python module to extract EEG features)
+
+* `pybrain_examples`
+
+Code that can be used in conjunction with PyBrain - the Python Machine Learning Library
+
+* `udp`
+
+This folder contains scripts needed to run a UDP server that streams OpenBCI data and a sample client for the server.
+
+## Additional Information
+-------------------
+
+To learn more about the Cognitive Technology Group, check out the Facebook page!
+https://www.facebook.com/groups/CogTechBerkeley/
+
+This readme was adapted from that of https://github.com/OpenBCI/OpenBCI_Python
+
