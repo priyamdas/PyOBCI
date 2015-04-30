@@ -6,6 +6,7 @@ If this is not what you are looking for, you can visit http://openbci.com/downlo
 
 ## Dependency List
 --------------
+
 OpenBCI 8 and 32 bit board with 8 or 16 channels.
 * Python 2.7 or later (https://www.python.org/download/releases/2.7/)
 * Numpy 1.7 or later (http://www.numpy.org/)
