@@ -214,47 +214,52 @@ class OpenBCIBoard(object):
     toogle_position - An boolean indicating what position the channel should be set to.
   
   ***NEEDS TO BE TESTED***
-  ***TODO: Change cascading ifs to mapping functions
-
+  
   """
   def set_channel(self, channel, toggle_position):
     #Commands to set toggle to on position
     if toggle_position == 1: 
-      if channel is 1:
-        self.ser.write('q')
-      if channel is 2:
-        self.ser.write('w')
-      if channel is 3:
-        self.ser.write('e')
-      if channel is 4:
-        self.ser.write('r')
-      if channel is 5:
-        self.ser.write('t')
-      if channel is 6:
-        self.ser.write('y')
-      if channel is 7:
-        self.ser.write('u')
-      if channel is 8:
-        self.ser.write('i')
-    #Commands to set toggle to off position
-    elif toggle_position == 0: 
-      if channel is 1:
-        self.ser.write('1')
-      if channel is 2:
-        self.ser.write('2')
-      if channel is 3:
-        self.ser.write('3')
-      if channel is 4:
-        self.ser.write('4')
-      if channel is 5:
-        self.ser.write('5')
-      if channel is 6:
-        self.ser.write('6')
-      if channel is 7:
-        self.ser.write('7')
-      if channel is 8:
-        self.ser.write('8')
+      self.ser.write(on_keys[channel])
+      # if channel is 1:
+      #   self.ser.write('q')
+      # if channel is 2:
+      #   self.ser.write('w')
+      # if channel is 3:
+      #   self.ser.write('e')
+      # if channel is 4:
+      #   self.ser.write('r')
+      # if channel is 5:
+      #   self.ser.write('t')
+      # if channel is 6:
+      #   self.ser.write('y')
+      # if channel is 7:
+      #   self.ser.write('u')
+      # if channel is 8:
+      #   self.ser.write('i')
 
+    #Commands to set toggle to off position
+    elif toggle_position == 0:
+      self.ser.write(off_keys[channel]) 
+      # if channel is 1:
+      #   self.ser.write('1')
+      # if channel is 2:
+      #   self.ser.write('2')
+      # if channel is 3:
+      #   self.ser.write('3')
+      # if channel is 4:
+      #   self.ser.write('4')
+      # if channel is 5:
+      #   self.ser.write('5')
+      # if channel is 6:
+      #   self.ser.write('6')
+      # if channel is 7:
+      #   self.ser.write('7')
+      # if channel is 8:
+      #   self.ser.write('8')
+
+# map the channel numbers to the desired output string
+on_keys = {1: 'q', 2: 'w', 3: 'e', 4: 'r', 5: 't', 6: 'y', 7: 'u', 8: 'i'}
+off_keys = {1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7', 8: '8'}
 
 class OpenBCISample(object):
   """Object encapulsating a single sample from the OpenBCI board."""
