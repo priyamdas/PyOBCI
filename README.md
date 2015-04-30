@@ -37,11 +37,11 @@ The `utilities` folder contains numerous tools with which to collect and sort da
 
 * `pybrain_examples`
 
-Code that can be used in conjunction with PyBrain - the Python Machine Learning Library
+ Code that can be used in conjunction with PyBrain - the Python Machine Learning Library
 
 * `udp`
 
-This folder contains scripts needed to run a UDP server that streams OpenBCI data and a sample client for the server.
+ This folder contains scripts needed to run a UDP server that streams OpenBCI data and a sample client for the server.
 
 ## Additional Information
 -------------------
